@@ -106,6 +106,7 @@ _Pragma("clang diagnostic pop")
 {
     _timeoutDate = 0;
     _pauseTimeInterval = 0;
+    _timeoutAfterResume = 0;
     
     if (_timer != nil)
     {
