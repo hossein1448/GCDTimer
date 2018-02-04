@@ -69,7 +69,7 @@ class GCDTimer {
     }
     
     func isScheduled() -> Bool {
-        return timer != nil
+        return isPaused() || timer != nil
     }
     
     func resetTimeout(_ timeout: TimeInterval) {
@@ -79,16 +79,17 @@ class GCDTimer {
     }
     
     func pause() -> Bool {
-        if let pauseTimeInterval = pauseTimeInterval, pauseTimeInterval > 0 {
+        guard !isPaused() else {
             return false
         }
         let pauseInterval = remainingTime()
         invalidate()
+        pauseTimeInterval = pauseInterval
         return pauseInterval > TimeInterval(Float.ulpOfOne)
     }
     
     func resume() -> Bool {
-        if let pauseTimeInterval = pauseTimeInterval, pauseTimeInterval > 0 {
+        guard isPaused() else {
             return false
         }
         
@@ -106,5 +107,13 @@ class GCDTimer {
             return Double.greatestFiniteMagnitude
         }
         return timeoutDate - (CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970)
+    }
+    
+    //MARK: Helpers
+    private func isPaused() -> Bool {
+        guard let pauseTimeInterval = pauseTimeInterval, pauseTimeInterval > 0 else {
+            return false
+        }
+        return true
     }
 }

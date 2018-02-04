@@ -110,7 +110,7 @@ _Pragma("clang diagnostic pop")
 
 - (bool)isScheduled
 {
-    return _timer != nil;
+    return (_pauseTimeInterval > 0 || _timer != nil);
 }
 
 - (void)resetTimeout:(NSTimeInterval)timeout
@@ -125,8 +125,9 @@ _Pragma("clang diagnostic pop")
     if (_pauseTimeInterval > 0) {
         return false;
     }
-    _pauseTimeInterval = [self remainingTime];
+    NSTimeInterval pauseInterval = [self remainingTime];
     [self invalidate];
+    _pauseTimeInterval = pauseInterval;
     return _pauseTimeInterval > FLT_EPSILON;
 }
 
@@ -148,6 +149,11 @@ _Pragma("clang diagnostic pop")
         return DBL_MAX;
     else
         return _timeoutDate - (CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970);
+}
+
+#pragma mark - Helpers
+- (bool)isPaused {
+    return _pauseTimeInterval > 0;
 }
 
 @end
