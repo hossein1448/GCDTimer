@@ -132,7 +132,7 @@ class GCDTimerSwiftTests: XCTestCase {
         XCTAssertTrue((timer?.isScheduled())!, "timer is scheduled in pause mode.")
     }
     
-    func testResumeTimer() {
+    func testResumeTimerNoRepeat() {
         let expectation = XCTestExpectation(description: "timer expectaiton")
         timer = GCDTimer(timeout: 2.0, repeat: false, completion: {
             expectation.fulfill()
@@ -148,6 +148,30 @@ class GCDTimerSwiftTests: XCTestCase {
         XCTAssertTrue(isResumed!, "timer is resumed.")
         XCTAssertTrue((timer?.isScheduled())!, "timer is scheduled in resume mode.")
         self.wait(for: [expectation], timeout: 4)
+    }
+    
+    func testResumeTimerWithRepeat() {
+        let expectation = XCTestExpectation(description: "timer expectaiton")
+        var repeatCount = 0
+        timer = GCDTimer(timeout: 3.0, repeat: true, completion: {
+            repeatCount+=1
+            print("skjndjenvfhbvhdbdhnchnwcjd- > \(repeatCount)")
+            if repeatCount > 1 {
+                expectation.fulfill()
+                XCTAssertTrue(repeatCount > 1, "callback repeat")
+            }
+        }, queue: DispatchQueue.main)
+        
+        XCTAssertFalse((timer?.isScheduled())!, "timer is not scheduled yet.")
+        timer?.start()
+        XCTAssertTrue((timer?.isScheduled())!, "timer is scheduled.")
+        let isPaused = timer?.pause()
+        XCTAssertTrue(isPaused!, "timer is paused.")
+        XCTAssertTrue((timer?.isScheduled())!, "timer is scheduled in pause mode.")
+        let isResumed = timer?.resume()
+        XCTAssertTrue(isResumed!, "timer is resumed.")
+        XCTAssertTrue((timer?.isScheduled())!, "timer is scheduled in resume mode.")
+        self.wait(for: [expectation], timeout: 6)
     }
     
     func testSecondResumeTimer() {
