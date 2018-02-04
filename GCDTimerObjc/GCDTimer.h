@@ -11,19 +11,62 @@
 @interface GCDTimer : NSObject
 
 @property (nonatomic, readonly) NSTimeInterval timeoutDate;
-
-- (id)initWithTimeout:(NSTimeInterval)timeout
+/*!
+ * @discussion Provide an instance of GCDTimer.
+ * @param timeout The number of seconds between firings of the timer.
+ * @param timerRepeat If YES, the timer will repeatedly reschedule itself until invalidated. If NO, the timer will be invalidated after it fires.
+ * @param completion The execution body of the timer.
+ * @param queue A dispatch_queue for executing the completion body.
+ * @return An instance of GCDTimer with given values.
+ */
+- (instancetype)initWithTimeout:(NSTimeInterval)timeout
                repeat:(bool)timerRepeat
            completion:(dispatch_block_t)completion
                 queue:(dispatch_queue_t)queue;
 
+/*!
+ * @discussion Start GCDtimer.
+ */
 - (void)start;
+
+/*!
+ * @discussion fire the execution body (completion) and invalidate the timer.
+ */
 - (void)fireAndInvalidate;
+
+/*!
+ * @discussion Invalidate the timer.
+ */
 - (void)invalidate;
+
+/*!
+ * @discussion Clarify the status of timer whether is scheduled or not.
+ * @return a bool value of timer schedule status
+ */
 - (bool)isScheduled;
+
+/*!
+ * @discussion Reschedule the timer with new timeout value.
+ * @param timeout New timeout value
+ */
 - (void)resetTimeout:(NSTimeInterval)timeout;
+
+/*!
+ * @discussion Pause the timer, store the remaining time and wait for calling the resume(). after first round, the timer timeout value calculated like the original.
+ * @return Clarify the timer is pausable or not.
+ */
 - (bool)pause;
+
+/*!
+ * @discussion Resume the timer with remaining timeInterval which is stored after pause().
+ * @return Clarify the timer is resumable or not.
+ */
 - (bool)resume;
+
+/*!
+ * @discussion Remaining time in second.
+ * @return Remaining time to next timer fire call.
+ */
 - (NSTimeInterval)remainingTime;
 
 @end

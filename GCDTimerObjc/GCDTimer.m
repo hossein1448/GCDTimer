@@ -22,6 +22,7 @@ _Pragma("clang diagnostic pop")
 @property (nonatomic, readwrite) NSTimeInterval timeoutDate;
 @property (nonatomic) NSTimeInterval timeout;
 @property (nonatomic) NSTimeInterval pauseTimeInterval;
+@property (nonatomic) NSTimeInterval timeoutAfterResume;
 @property (nonatomic) bool repeat;
 @property (nonatomic, copy) dispatch_block_t completion;
 @property (nonatomic) dispatch_queue_t queue;
@@ -37,6 +38,7 @@ _Pragma("clang diagnostic pop")
 @synthesize completion = _completion;
 @synthesize queue = _queue;
 @synthesize pauseTimeInterval = _pauseTimeInterval;
+@synthesize timeoutAfterResume = _timeoutAfterResume;
 
 - (id)initWithTimeout:(NSTimeInterval)timeout repeat:(bool)timerRepeat completion:(dispatch_block_t)completion queue:(dispatch_queue_t)queue
 {
@@ -78,6 +80,10 @@ _Pragma("clang diagnostic pop")
                                           if (!_repeat)
                                           {
                                               [self invalidate];
+                                          }else {
+                                              if (self.timeoutAfterResume > 0) {
+                                                  [self resetTimeout:self.timeoutAfterResume];
+                                              }
                                           }
                                       });
     dispatch_resume(_timer);
@@ -139,7 +145,9 @@ _Pragma("clang diagnostic pop")
         [self fireAndInvalidate];
         return false;
     }
+    NSTimeInterval nextTimeout = _timeout;
     [self resetTimeout:_pauseTimeInterval];
+    _timeoutAfterResume = nextTimeout;
     return true;
 }
 
