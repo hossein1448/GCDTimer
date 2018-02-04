@@ -10,6 +10,9 @@
 
 @interface GCDTimer : NSObject
 
+/*!
+ * @discussion Timeout date time interval.
+ */
 @property (nonatomic, readonly) NSTimeInterval timeoutDate;
 /*!
  * @discussion Provide an instance of GCDTimer.

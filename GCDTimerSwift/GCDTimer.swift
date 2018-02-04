@@ -8,14 +8,85 @@
 
 import Foundation
 
-class GCDTimer {
+protocol GCDTimerProtocol: class {
+    
+    /*!
+     * @discussion Timeout date time interval.
+     */
+    var timeoutDate: TimeInterval { get }
+    /*!
+     * @discussion Remaining time in second.
+     * @return Remaining time to next timer fire call.
+     */
+    var remainingTime: TimeInterval { get }
+    
+    /*!
+     * @discussion Provide an instance of GCDTimer.
+     * @param timeout The number of seconds between firings of the timer.
+     * @param timerRepeat If YES, the timer will repeatedly reschedule itself until invalidated. If NO, the timer will be invalidated after it fires.
+     * @param completion The execution body of the timer.
+     * @param queue A dispatch_queue for executing the completion body.
+     * @return An instance of GCDTimer with given values.
+     */
+    init!(timeout: TimeInterval,
+          repeat timerRepeat: Bool,
+          completion: (() -> Void)!,
+          queue: DispatchQueue!)
+    /*!
+     * @discussion Start GCDtimer.
+     */
+    func start()
+    /*!
+     * @discussion fire the execution body (completion) and invalidate the timer.
+     */
+    func fireAndInvalidate()
+    /*!
+     * @discussion Invalidate the timer.
+     */
+    func invalidate()
+    /*!
+     * @discussion Clarify the status of timer whether is scheduled or not.
+     * @return a bool value of timer schedule status
+     */
+    func isScheduled() -> Bool
+    /*!
+     * @discussion Reschedule the timer with new timeout value.
+     * @param timeout New timeout value
+     */
+    func resetTimeout(_ timeout: TimeInterval)
+    /*!
+     * @discussion Pause the timer, store the remaining time and wait for calling the resume(). after first round, the timer timeout value calculated like the original.
+     * @return Clarify the timer is pausable or not.
+     */
+    func pause() -> Bool
+    /*!
+     * @discussion Resume the timer with remaining timeInterval which is stored after pause().
+     * @return Clarify the timer is resumable or not.
+     */
+    func resume() -> Bool
+}
+
+class GCDTimer: GCDTimerProtocol {
     private(set) var timeoutDate: TimeInterval
     private var timeout: TimeInterval
     private var pauseTimeInterval: TimeInterval?
+    private var timeoutAfterResume: TimeInterval?
     private var timerRepeat: Bool
     private var completion: (() -> Void)
     private var queue: DispatchQueue
     private var timer: DispatchSourceTimer?
+    var remainingTime: TimeInterval {
+        guard timeoutDate > TimeInterval(Float.ulpOfOne) else {
+            return Double.greatestFiniteMagnitude
+        }
+        return timeoutDate - (CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970)
+    }
+    private var isPaused: Bool {
+        guard let pauseTimeInterval = pauseTimeInterval, pauseTimeInterval > 0 else {
+            return false
+        }
+        return true
+    }
     
     required init!(timeout: TimeInterval,
                    repeat timerRepeat: Bool,
@@ -46,6 +117,11 @@ class GCDTimer {
         
         timer?.setEventHandler(handler: { [weak self] in
             self?.completion()
+            if self?.timerRepeat == true,
+                let timeout = self?.timeoutAfterResume,
+                timeout > 0 {
+                self?.resetTimeout(timeout)
+            }
         })
         timer?.resume()
     }
@@ -61,6 +137,7 @@ class GCDTimer {
     func invalidate() {
         timeoutDate = 0
         pauseTimeInterval = 0
+        timeoutAfterResume = 0
         guard timer != nil else {
             return
         }
@@ -69,7 +146,7 @@ class GCDTimer {
     }
     
     func isScheduled() -> Bool {
-        return isPaused() || timer != nil
+        return isPaused || timer != nil
     }
     
     func resetTimeout(_ timeout: TimeInterval) {
@@ -79,17 +156,17 @@ class GCDTimer {
     }
     
     func pause() -> Bool {
-        guard !isPaused() else {
+        guard !isPaused else {
             return false
         }
-        let pauseInterval = remainingTime()
+        let pauseInterval = remainingTime
         invalidate()
         pauseTimeInterval = pauseInterval
         return pauseInterval > TimeInterval(Float.ulpOfOne)
     }
     
     func resume() -> Bool {
-        guard isPaused() else {
+        guard isPaused else {
             return false
         }
         
@@ -97,23 +174,9 @@ class GCDTimer {
             fireAndInvalidate()
             return false
         }
-        
+        let nextTimeout = timeout
         resetTimeout(pauseInterval)
-        return true
-    }
-    
-    func remainingTime() -> TimeInterval {
-        guard timeoutDate > TimeInterval(Float.ulpOfOne) else {
-            return Double.greatestFiniteMagnitude
-        }
-        return timeoutDate - (CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970)
-    }
-    
-    //MARK: Helpers
-    private func isPaused() -> Bool {
-        guard let pauseTimeInterval = pauseTimeInterval, pauseTimeInterval > 0 else {
-            return false
-        }
+        timeoutAfterResume = nextTimeout
         return true
     }
 }
