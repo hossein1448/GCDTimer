@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		94B3BF3C2027198A0031C269 /* GCDTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3BF322027198A0031C269 /* GCDTimer.framework */; };
-		94B3BF412027198A0031C269 /* GCDTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF402027198A0031C269 /* GCDTimerTests.m */; };
 		94B3BF432027198A0031C269 /* GCDTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF352027198A0031C269 /* GCDTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94B3BF5A202719A90031C269 /* GCDTimerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B3BF51202719A90031C269 /* GCDTimerSwift.framework */; };
+		94B3BF5F202719A90031C269 /* GCDTimerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */; };
+		94B3BF61202719A90031C269 /* GCDTimerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF53202719A90031C269 /* GCDTimerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94B3BF6B202719D10031C269 /* GCDTimer_Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF68202719D10031C269 /* GCDTimer_Objc.m */; };
+		94B3BF6C202719D10031C269 /* GCDTimerInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF69202719D10031C269 /* GCDTimerInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94B3BF6D202719D10031C269 /* GCDTimer_Objc.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF6A202719D10031C269 /* GCDTimer_Objc.h */; };
+		94B3BF6F20271A130031C269 /* GCDTimer_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF6E20271A130031C269 /* GCDTimer_Swift.swift */; };
+		94B3BF7020271A350031C269 /* GCDTimerInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF69202719D10031C269 /* GCDTimerInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94B3BF7220271BB20031C269 /* GCDTimerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +28,13 @@
 			remoteGlobalIDString = 94B3BF312027198A0031C269;
 			remoteInfo = GCDTimer;
 		};
+		94B3BF5B202719A90031C269 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94B3BF292027198A0031C269 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94B3BF50202719A90031C269;
+			remoteInfo = GCDTimerSwift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +42,17 @@
 		94B3BF352027198A0031C269 /* GCDTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
 		94B3BF362027198A0031C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B3BF3B2027198A0031C269 /* GCDTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCDTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94B3BF402027198A0031C269 /* GCDTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDTimerTests.m; sourceTree = "<group>"; };
 		94B3BF422027198A0031C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B3BF51202719A90031C269 /* GCDTimerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GCDTimerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B3BF53202719A90031C269 /* GCDTimerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDTimerSwift.h; sourceTree = "<group>"; };
+		94B3BF54202719A90031C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B3BF59202719A90031C269 /* GCDTimerSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCDTimerSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTimerSwiftTests.swift; sourceTree = "<group>"; };
+		94B3BF60202719A90031C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B3BF68202719D10031C269 /* GCDTimer_Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer_Objc.m; sourceTree = "<group>"; };
+		94B3BF69202719D10031C269 /* GCDTimerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimerInterface.h; sourceTree = "<group>"; };
+		94B3BF6A202719D10031C269 /* GCDTimer_Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer_Objc.h; sourceTree = "<group>"; };
+		94B3BF6E20271A130031C269 /* GCDTimer_Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDTimer_Swift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +71,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94B3BF4D202719A90031C269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B3BF56202719A90031C269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B3BF5A202719A90031C269 /* GCDTimerSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,7 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				94B3BF342027198A0031C269 /* GCDTimer */,
+				94B3BF52202719A90031C269 /* GCDTimerSwift */,
 				94B3BF3F2027198A0031C269 /* GCDTimerTests */,
+				94B3BF5D202719A90031C269 /* GCDTimerSwiftTests */,
 				94B3BF332027198A0031C269 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +105,8 @@
 			children = (
 				94B3BF322027198A0031C269 /* GCDTimer.framework */,
 				94B3BF3B2027198A0031C269 /* GCDTimerTests.xctest */,
+				94B3BF51202719A90031C269 /* GCDTimerSwift.framework */,
+				94B3BF59202719A90031C269 /* GCDTimerSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +114,9 @@
 		94B3BF342027198A0031C269 /* GCDTimer */ = {
 			isa = PBXGroup;
 			children = (
+				94B3BF6A202719D10031C269 /* GCDTimer_Objc.h */,
+				94B3BF68202719D10031C269 /* GCDTimer_Objc.m */,
+				94B3BF69202719D10031C269 /* GCDTimerInterface.h */,
 				94B3BF352027198A0031C269 /* GCDTimer.h */,
 				94B3BF362027198A0031C269 /* Info.plist */,
 			);
@@ -80,10 +126,28 @@
 		94B3BF3F2027198A0031C269 /* GCDTimerTests */ = {
 			isa = PBXGroup;
 			children = (
-				94B3BF402027198A0031C269 /* GCDTimerTests.m */,
+				94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */,
 				94B3BF422027198A0031C269 /* Info.plist */,
 			);
 			path = GCDTimerTests;
+			sourceTree = "<group>";
+		};
+		94B3BF52202719A90031C269 /* GCDTimerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				94B3BF6E20271A130031C269 /* GCDTimer_Swift.swift */,
+				94B3BF53202719A90031C269 /* GCDTimerSwift.h */,
+				94B3BF54202719A90031C269 /* Info.plist */,
+			);
+			path = GCDTimerSwift;
+			sourceTree = "<group>";
+		};
+		94B3BF5D202719A90031C269 /* GCDTimerSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				94B3BF60202719A90031C269 /* Info.plist */,
+			);
+			path = GCDTimerSwiftTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +158,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B3BF432027198A0031C269 /* GCDTimer.h in Headers */,
+				94B3BF6C202719D10031C269 /* GCDTimerInterface.h in Headers */,
+				94B3BF6D202719D10031C269 /* GCDTimer_Objc.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B3BF4E202719A90031C269 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B3BF61202719A90031C269 /* GCDTimerSwift.h in Headers */,
+				94B3BF7020271A350031C269 /* GCDTimerInterface.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,12 +211,49 @@
 			productReference = 94B3BF3B2027198A0031C269 /* GCDTimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		94B3BF50202719A90031C269 /* GCDTimerSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94B3BF62202719A90031C269 /* Build configuration list for PBXNativeTarget "GCDTimerSwift" */;
+			buildPhases = (
+				94B3BF4C202719A90031C269 /* Sources */,
+				94B3BF4D202719A90031C269 /* Frameworks */,
+				94B3BF4E202719A90031C269 /* Headers */,
+				94B3BF4F202719A90031C269 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GCDTimerSwift;
+			productName = GCDTimerSwift;
+			productReference = 94B3BF51202719A90031C269 /* GCDTimerSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		94B3BF58202719A90031C269 /* GCDTimerSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94B3BF65202719A90031C269 /* Build configuration list for PBXNativeTarget "GCDTimerSwiftTests" */;
+			buildPhases = (
+				94B3BF55202719A90031C269 /* Sources */,
+				94B3BF56202719A90031C269 /* Frameworks */,
+				94B3BF57202719A90031C269 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94B3BF5C202719A90031C269 /* PBXTargetDependency */,
+			);
+			name = GCDTimerSwiftTests;
+			productName = GCDTimerSwiftTests;
+			productReference = 94B3BF59202719A90031C269 /* GCDTimerSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		94B3BF292027198A0031C269 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Hossein Asgari";
 				TargetAttributes = {
@@ -150,6 +262,15 @@
 						ProvisioningStyle = Automatic;
 					};
 					94B3BF3A2027198A0031C269 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					94B3BF50202719A90031C269 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					94B3BF58202719A90031C269 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -169,6 +290,8 @@
 			targets = (
 				94B3BF312027198A0031C269 /* GCDTimer */,
 				94B3BF3A2027198A0031C269 /* GCDTimerTests */,
+				94B3BF50202719A90031C269 /* GCDTimerSwift */,
+				94B3BF58202719A90031C269 /* GCDTimerSwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,6 +311,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94B3BF4F202719A90031C269 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B3BF57202719A90031C269 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -195,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B3BF6B202719D10031C269 /* GCDTimer_Objc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +340,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94B3BF412027198A0031C269 /* GCDTimerTests.m in Sources */,
+				94B3BF7220271BB20031C269 /* GCDTimerSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B3BF4C202719A90031C269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B3BF6F20271A130031C269 /* GCDTimer_Swift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B3BF55202719A90031C269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B3BF5F202719A90031C269 /* GCDTimerSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +367,11 @@
 			isa = PBXTargetDependency;
 			target = 94B3BF312027198A0031C269 /* GCDTimer */;
 			targetProxy = 94B3BF3D2027198A0031C269 /* PBXContainerItemProxy */;
+		};
+		94B3BF5C202719A90031C269 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94B3BF50202719A90031C269 /* GCDTimerSwift */;
+			targetProxy = 94B3BF5B202719A90031C269 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -270,6 +429,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -321,6 +481,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -393,6 +554,86 @@
 			};
 			name = Release;
 		};
+		94B3BF63202719A90031C269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Z8KG7F7RM7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GCDTimerSwift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = come.1448.GCDTimerSwift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94B3BF64202719A90031C269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Z8KG7F7RM7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GCDTimerSwift/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = come.1448.GCDTimerSwift;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		94B3BF66202719A90031C269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8KG7F7RM7;
+				INFOPLIST_FILE = GCDTimerSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = come.1448.GCDTimerSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94B3BF67202719A90031C269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z8KG7F7RM7;
+				INFOPLIST_FILE = GCDTimerSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = come.1448.GCDTimerSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -419,6 +660,24 @@
 			buildConfigurations = (
 				94B3BF4A2027198A0031C269 /* Debug */,
 				94B3BF4B2027198A0031C269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94B3BF62202719A90031C269 /* Build configuration list for PBXNativeTarget "GCDTimerSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B3BF63202719A90031C269 /* Debug */,
+				94B3BF64202719A90031C269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94B3BF65202719A90031C269 /* Build configuration list for PBXNativeTarget "GCDTimerSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B3BF66202719A90031C269 /* Debug */,
+				94B3BF67202719A90031C269 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
