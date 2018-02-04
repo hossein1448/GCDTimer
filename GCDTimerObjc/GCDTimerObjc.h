@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double GCDTimerVersionNumber;
 //! Project version string for GCDTimer.
 FOUNDATION_EXPORT const unsigned char GCDTimerVersionString[];
 
-#import <GCDTimer/GCDTimerInterface.h>
+#import <GCDTimerObjc/GCDTimer.h>
 
 

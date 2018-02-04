@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GCDTimerSwift: GCDTimer {
+class GCDTimer {
     private(set) var timeoutDate: TimeInterval
     private var timeout: TimeInterval
     private var pauseTimeInterval: TimeInterval?
@@ -39,14 +39,15 @@ class GCDTimerSwift: GCDTimer {
         timeoutDate = CFAbsoluteTimeGetCurrent() + kCFAbsoluteTimeIntervalSince1970 + timeout
         timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
         if timerRepeat {
-            timer?.schedule(deadline: .now() + timeout)
+            timer?.schedule(deadline: .now() + timeout, repeating: timeout)
         }else {
-            timer?.schedule(deadline: DispatchTime.distantFuture, repeating: timeout)
+            timer?.schedule(deadline: .now() + timeout)
         }
         
         timer?.setEventHandler(handler: { [weak self] in
             self?.completion()
         })
+        timer?.resume()
     }
     
     func fireAndInvalidate() {

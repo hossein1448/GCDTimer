@@ -1,5 +1,5 @@
 //
-//  GCDTimerInterface.h
+//  GCDTimer.h
 //  GCDTimer
 //
 //  Created by Hossein on 2/3/18.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol GCDTimer
+@interface GCDTimer : NSObject
 
 @property (nonatomic, readonly) NSTimeInterval timeoutDate;
 

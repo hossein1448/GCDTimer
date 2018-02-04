@@ -6,7 +6,7 @@
 //  Copyright © 2018 Hossein Asgari. All rights reserved.
 //
 
-#import "GCDTimer_Objc.h"
+#import "GCDTimer.h"
 
 #define weakify(var) __weak typeof(var) weak_##var = var;
 
@@ -16,7 +16,7 @@ _Pragma("clang diagnostic ignored \"-Wshadow\"") \
 __strong typeof(var) var = weak_##var; \
 _Pragma("clang diagnostic pop")
 
-@interface GCDTimerObjc ()
+@interface GCDTimer ()
 
 @property (nonatomic) dispatch_source_t timer;
 @property (nonatomic, readwrite) NSTimeInterval timeoutDate;
@@ -28,7 +28,7 @@ _Pragma("clang diagnostic pop")
 
 @end
 
-@implementation GCDTimerObjc
+@implementation GCDTimer
 
 @synthesize timeoutDate = _timeoutDate;
 @synthesize timer = _timer;
