@@ -13,10 +13,10 @@
 		94B3BF61202719A90031C269 /* GCDTimerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF53202719A90031C269 /* GCDTimerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94B3BF6B202719D10031C269 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF68202719D10031C269 /* GCDTimer.m */; };
 		94B3BF6F20271A130031C269 /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF6E20271A130031C269 /* GCDTimer.swift */; };
-		94B3BF7220271BB20031C269 /* GCDTimerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */; };
-		94B3BF7320272C570031C269 /* GCDTimerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */; };
+		94B3BF7320272C570031C269 /* GCDTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF5E202719A90031C269 /* GCDTimerTests.swift */; };
 		94B3BF7420272DE90031C269 /* GCDTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF6E20271A130031C269 /* GCDTimer.swift */; };
 		94B3BF7820272F190031C269 /* GCDTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 94B3BF6A202719D10031C269 /* GCDTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94B3BF7E2028E9030031C269 /* GCDTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3BF5E202719A90031C269 /* GCDTimerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		94B3BF53202719A90031C269 /* GCDTimerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDTimerSwift.h; sourceTree = "<group>"; };
 		94B3BF54202719A90031C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B3BF59202719A90031C269 /* GCDTimerSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GCDTimerSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTimerSwiftTests.swift; sourceTree = "<group>"; };
+		94B3BF5E202719A90031C269 /* GCDTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTimerTests.swift; sourceTree = "<group>"; };
 		94B3BF60202719A90031C269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B3BF68202719D10031C269 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
 		94B3BF6A202719D10031C269 /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		94B3BF5D202719A90031C269 /* GCDTimerSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				94B3BF5E202719A90031C269 /* GCDTimerSwiftTests.swift */,
+				94B3BF5E202719A90031C269 /* GCDTimerTests.swift */,
 				94B3BF60202719A90031C269 /* Info.plist */,
 			);
 			path = GCDTimerSwiftTests;
@@ -335,7 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94B3BF7220271BB20031C269 /* GCDTimerSwiftTests.swift in Sources */,
+				94B3BF7E2028E9030031C269 /* GCDTimerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B3BF7420272DE90031C269 /* GCDTimer.swift in Sources */,
-				94B3BF7320272C570031C269 /* GCDTimerSwiftTests.swift in Sources */,
+				94B3BF7320272C570031C269 /* GCDTimerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

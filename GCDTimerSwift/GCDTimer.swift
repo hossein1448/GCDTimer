@@ -29,9 +29,23 @@ protocol GCDTimerProtocol: class {
      * @return An instance of GCDTimer with given values.
      */
     init!(timeout: TimeInterval,
-          repeat timerRepeat: Bool,
+          repeat repeats: Bool,
           completion: (() -> Void)!,
           queue: DispatchQueue!)
+    
+    /*!
+     * @discussion Provide an instance of GCDTimer.
+     * @param timeout The number of seconds between firings of the timer.
+     * @param timerRepeat If YES, the timer will repeatedly reschedule itself until invalidated. If NO, the timer will be invalidated after it fires.
+     * @param completion The execution body of the timer.
+     * @param queue A dispatch_queue for executing the completion body.
+     * @return An instance of GCDTimer with given values.
+     */
+    static func scheduledTimer(withTimeInterval timeout: TimeInterval,
+                              repeats: Bool,
+                              completion: @escaping () -> Void,
+                              queue: DispatchQueue!) -> GCDTimer
+    
     /*!
      * @discussion Start GCDtimer.
      */
@@ -89,14 +103,24 @@ class GCDTimer: GCDTimerProtocol {
     }
     
     required init!(timeout: TimeInterval,
-                   repeat timerRepeat: Bool,
+                   repeat repeats: Bool,
                    completion: (() -> Void)!,
                    queue: DispatchQueue!) {
         self.timeout = timeout
-        self.timerRepeat = timerRepeat
+        self.timerRepeat = repeats
         self.completion = completion
         self.queue = queue
         self.timeoutDate = TimeInterval(INT_MAX)
+    }
+    
+    static func scheduledTimer(withTimeInterval timeout: TimeInterval,
+                               repeats: Bool,
+                               completion: @escaping () -> Void,
+                               queue: DispatchQueue!) -> GCDTimer {
+        return GCDTimer(timeout: timeout,
+                        repeat: repeats,
+                        completion: completion,
+                        queue: queue)
     }
     
     deinit {

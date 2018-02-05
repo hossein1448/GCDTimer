@@ -40,18 +40,30 @@ _Pragma("clang diagnostic pop")
 @synthesize pauseTimeInterval = _pauseTimeInterval;
 @synthesize timeoutAfterResume = _timeoutAfterResume;
 
-- (id)initWithTimeout:(NSTimeInterval)timeout repeat:(bool)timerRepeat completion:(dispatch_block_t)completion queue:(dispatch_queue_t)queue
-{
+- (id)initWithTimeout:(NSTimeInterval)timeout
+               repeat:(bool)repeats
+           completion:(dispatch_block_t)completion
+                queue:(dispatch_queue_t)queue {
     self = [super init];
     if (self != nil)
     {
         _timeoutDate = INT_MAX;
         _timeout = timeout;
-        _repeat = timerRepeat;
+        _repeat = repeats;
         self.completion = completion;
         self.queue = queue;
     }
     return self;
+}
+
++ (GCDTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)timeout
+                                     repeats:(BOOL)repeats
+                                  completion:(dispatch_block_t)completion
+                                       queue:(dispatch_queue_t)queue {
+    return [[GCDTimer alloc] initWithTimeout:timeout
+                                      repeat:repeats
+                                  completion:completion
+                                       queue:queue];
 }
 
 - (void)dealloc

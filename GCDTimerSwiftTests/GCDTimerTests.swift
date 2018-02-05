@@ -9,7 +9,8 @@
 import XCTest
 @testable import GCDTimerObjc
 
-class GCDTimerSwiftTests: XCTestCase {
+
+class GCDTimerTests: XCTestCase {
     var timer: GCDTimer?
     
     override func setUp() {
@@ -153,7 +154,7 @@ class GCDTimerSwiftTests: XCTestCase {
     func testResumeTimerWithRepeat() {
         let expectation = XCTestExpectation(description: "timer expectaiton")
         var repeatCount = 0
-        timer = GCDTimer(timeout: 3.0, repeat: true, completion: {
+        timer = GCDTimer(timeout: 2.0, repeat: true, completion: {
             repeatCount+=1
             print("skjndjenvfhbvhdbdhnchnwcjd- > \(repeatCount)")
             if repeatCount > 1 {

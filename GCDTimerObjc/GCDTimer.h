@@ -17,15 +17,28 @@
 /*!
  * @discussion Provide an instance of GCDTimer.
  * @param timeout The number of seconds between firings of the timer.
- * @param timerRepeat If YES, the timer will repeatedly reschedule itself until invalidated. If NO, the timer will be invalidated after it fires.
+ * @param repeats If YES, the timer will repeatedly reschedule itself until invalidated. If NO, the timer will be invalidated after it fires.
  * @param completion The execution body of the timer.
  * @param queue A dispatch_queue for executing the completion body.
  * @return An instance of GCDTimer with given values.
  */
 - (instancetype)initWithTimeout:(NSTimeInterval)timeout
-               repeat:(bool)timerRepeat
+               repeat:(bool)repeats
            completion:(dispatch_block_t)completion
                 queue:(dispatch_queue_t)queue;
+
+/*!
+ * @discussion Provide an instance of GCDTimer.
+ * @param timeout The number of seconds between firings of the timer.
+ * @param repeats If YES, the timer will repeatedly reschedule itself until invalidated. If NO, the timer will be invalidated after it fires.
+ * @param completion The execution body of the timer.
+ * @param queue A dispatch_queue for executing the completion body.
+ * @return An instance of GCDTimer with given values.
+ */
++ (GCDTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)timeout
+                                    repeats:(BOOL)repeats
+                                 completion:(dispatch_block_t)completion
+                                       queue:(dispatch_queue_t)queue;
 
 /*!
  * @discussion Start GCDtimer.
